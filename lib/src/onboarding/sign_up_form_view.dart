@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 class SignUpFormView extends StatefulWidget {
   final SignUpViewModel viewModel;
 
-  const SignUpFormView({Key key, @required this.viewModel}) : super(key: key);
+  const SignUpFormView({Key? key, required this.viewModel}) : super(key: key);
 
   static Widget create(BuildContext context) {
     final auth = Provider.of<AuthBase>(context, listen: false);

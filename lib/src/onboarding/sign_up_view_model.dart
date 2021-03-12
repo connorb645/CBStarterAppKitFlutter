@@ -18,7 +18,7 @@ class SignUpViewModel
   bool submitted = false;
   bool loading = false;
 
-  SignUpViewModel({@required this.auth});
+  SignUpViewModel({required this.auth});
 
   String get title {
     return this.formType == SignUpFormType.signUp ? "Create Account" : "Log In";
@@ -36,18 +36,18 @@ class SignUpViewModel
         : "Don't have an account? Create one!";
   }
 
-  String get emailErrorText {
+  String? get emailErrorText {
     bool showError = !isEmailValid(this.email) && submitted;
     return showError ? invalidEmailErrorText(this.email) : null;
   }
 
-  String get passwordErrorText {
+  String? get passwordErrorText {
     bool showError =
         !this.passwordValidator.isValid(this.password) && submitted;
     return showError ? invalidPasswordErrorText : null;
   }
 
-  String get confirmPasswordErrorText {
+  String? get confirmPasswordErrorText {
     bool showError = !this
             .confirmPasswordValidator
             .isValid(this.password, this.confirmPassword) &&
@@ -64,7 +64,7 @@ class SignUpViewModel
         await auth.signInWithEmailAndPassword(email, password);
       }
       return true;
-    } catch (e) {
+    } on Exception catch (e) {
       showErrorAlertDialog(context,
           title: "Error creating your account", exception: e);
       return false;
@@ -80,11 +80,11 @@ class SignUpViewModel
   }
 
   void update(
-      {String email,
-      String password,
-      String confirmPassword,
-      SignUpFormType formType,
-      bool submitted}) {
+      {String? email,
+      String? password,
+      String? confirmPassword,
+      SignUpFormType? formType,
+      bool? submitted}) {
     this.email = email ?? this.email;
     this.password = password ?? this.password;
     this.confirmPassword = confirmPassword ?? this.confirmPassword;

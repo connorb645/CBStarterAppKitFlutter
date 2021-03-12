@@ -6,8 +6,8 @@ class OnboardingView extends StatefulWidget {
   final LandingViewOptions options;
 
   const OnboardingView({
-    Key key,
-    @required this.options,
+    Key? key,
+    required this.options,
   }) : super(key: key);
 
   @override
@@ -38,7 +38,7 @@ class _OnboardingViewState extends State<OnboardingView> {
           count: 3,
           effect: WormEffect(
             activeDotColor: Colors.white,
-            dotColor: Colors.grey[400],
+            dotColor: Colors.grey[400]!,
             dotHeight: 8.0,
             dotWidth: 8.0,
           ),

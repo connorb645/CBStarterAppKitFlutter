@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 
 Future<void> showErrorAlertDialog(
   BuildContext context, {
-  @required String title,
-  @required Exception exception,
+  required String title,
+  required Exception exception,
 }) =>
     showAlertDialog(context,
         title: title, content: _message(exception), defaultActionText: "OK");
 
-String _message(Exception exception) {
+String? _message(Exception exception) {
   if (exception is FirebaseException) {
     return exception.message;
   }

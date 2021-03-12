@@ -9,9 +9,9 @@ class CBButton extends StatelessWidget {
   final double height;
 
   const CBButton({
-    Key key,
-    @required this.onPressed,
-    @required this.title,
+    Key? key,
+    required this.onPressed,
+    required this.title,
     this.backgroundColor = Colors.black87,
     this.foregroundColor = Colors.white70,
     this.padding = 8.0,

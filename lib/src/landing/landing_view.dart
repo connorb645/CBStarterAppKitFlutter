@@ -9,10 +9,10 @@ class LandingView extends StatelessWidget {
   final void Function() signInWithEmailAndPasswordTapped;
 
   const LandingView({
-    Key key,
-    @required this.options,
-    @required this.signInWithGoogleTapped,
-    @required this.signInWithEmailAndPasswordTapped,
+    Key? key,
+    required this.options,
+    required this.signInWithGoogleTapped,
+    required this.signInWithEmailAndPasswordTapped,
   }) : super(key: key);
 
   @override
