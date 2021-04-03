@@ -7,6 +7,8 @@ class CBButton extends StatelessWidget {
   final Color foregroundColor;
   final double padding;
   final double height;
+  final bool isLoading;
+  final double letterSpacing;
 
   const CBButton({
     Key? key,
@@ -16,6 +18,8 @@ class CBButton extends StatelessWidget {
     this.foregroundColor = Colors.white70,
     this.padding = 8.0,
     this.height = 55,
+    this.isLoading = false,
+    this.letterSpacing = 1.2,
   }) : super(key: key);
 
   @override
@@ -28,7 +32,14 @@ class CBButton extends StatelessWidget {
           foregroundColor: MaterialStateProperty.all<Color>(foregroundColor),
           minimumSize: MaterialStateProperty.all<Size>(Size.fromHeight(height)),
         ),
-        child: Text(title),
+        child: isLoading
+            ? CircularProgressIndicator()
+            : Text(
+                title,
+                style: TextStyle(
+                  letterSpacing: letterSpacing,
+                ),
+              ),
         onPressed: onPressed,
       ),
     );
